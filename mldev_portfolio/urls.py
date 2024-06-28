@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from theme.views import change_theme
 
 
 urlpatterns = [
     path("", include("ml_pf.urls"), name="landing"),
+    path("switch-theme/", change_theme, name="change_theme"),
     path("admin/", admin.site.urls),
+    path("__reload__/", include("django_browser_reload.urls"))
 ]

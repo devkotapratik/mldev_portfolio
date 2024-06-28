@@ -1,0 +1,39 @@
+<!-- <nav class="flex items-center bg-slate-400 dark:bg-slate-900 text-gray-900 dark:text-gray-100 px-4" style="height: 60px;">
+    <ul class="flex justify-start">
+        <li class="px-4">
+            <a href="" class="hover:text-zinc-400">
+                home
+            </a>
+        </li>
+        <li class="px-4">
+            <a href="" class="hover:text-zinc-400">
+                projects
+            </a>
+        </li>
+    </ul>
+    <div class="flex justify-end">
+        <a href="" class="bg-gray-100 px-4 py-2 rounded-xl hover:bg-gray-300 duration-300 dark:bg-slate-600">
+            <i class="fa-regular fa-sun"></i>
+        </a>
+    </div>
+</nav> -->
+
+<nav class="flex items-center bg-slate-400 dark:bg-slate-900 text-gray-900 dark:text-gray-100 p-4 h-20">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Left side items -->
+        <div class="flex space-x-8">
+            <a href="#" class="text-white hover:text-zinc-400">Home</a>
+            <a href="#" class="text-white hover:text-zinc-400">About</a>
+        </div>
+        <!-- Right side item -->
+        <div>
+            <a href="{% url 'change_theme' %}" class="bg-gray-100 px-3 py-2 rounded-2xl hover:bg-gray-300 duration-300 dark:bg-slate-600">
+                {% if is_dark_theme %}
+                    <i class="fa-regular fa-sun"></i>
+                {% else %}
+                    <i class="fa-regular fa-moon"></i>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+</nav>
