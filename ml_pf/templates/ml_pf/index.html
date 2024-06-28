@@ -2,22 +2,46 @@
 
 {% block content %}
 
-{% if education %}
-    {% for school in education %}
-    <ul>
-        <strong>{{school.school_name}}</strong>
-        <p>{{school.degree_name}}{% if school.gpa %} | GPA: {{school.gpa}} {% endif %}</p>
-        {% if school.final_work %}
-            {% if school.link_to_final_work %}
-                <a href="{{school.link_to_final_work}}">{{school.final_work}}</a>
-            {% else %}
-                <p>{{school.final_work}}</p>
+<div class="page flex flex-wrap justify-center">
+    <div class="flex w-full justify-center mb-3">
+        <ul>
+            <ul class="flex justify-center">
+                <img src="{{ image.image.url }}" alt="{{ image.name}}" class="inline-block rounded-full w-32 shadow-md">
+            </ul>
+            <ul class="flex justify-center">
+                <div class="w-full mt-1 text-center">
+                    <h1 class="mb-0 font-bold text-4xl flex justify-center">{{ image.image_name }}</h1>
+                    <p class="mt-2 font-light text-2xl leading-tight">{{ image.image_desc|safe }}</p>
+                </div>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+<div>
+    {% if education %}
+        <div class="flex justify-center">
+            <span class="font-bold">EDUCATION</span>
+        </div>
+        {% for school in education %}
+        <ul>
+            <div class="flex justify-between">
+                <span><strong>{{school.school_name}}</strong></span>
+                <span>{{school.location}}</span>
+            </div>
+            <p>{{school.degree_name}}{% if school.gpa %} | GPA: {{school.gpa}} {% endif %}</p>
+            {% if school.final_work %}
+                {% if school.link_to_final_work %}
+                    <a href="{{school.link_to_final_work}}">{{school.final_work}}</a>
+                {% else %}
+                    <p>{{school.final_work}}</p>
+                {% endif %}
             {% endif %}
-        {% endif %}
-    </ul>
-    {% endfor %}
-{% else %}
-    <p>No education details are available.</p>
-{% endif %}
+        </ul>
+        {% endfor %}
+    {% else %}
+        <p>No education details are available.</p>
+    {% endif %}
+</div>
 
 {% endblock content %}

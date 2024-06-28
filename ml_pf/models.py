@@ -11,7 +11,7 @@ class Location(models.Model):
     country = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"{self.town}_{self.state}_{self.country}"
+        return f"{self.town}, {self.state}, {self.country}"
 
 
 class Date(models.Model):
@@ -36,3 +36,13 @@ class Education(models.Model):
     def __str__(self):
         return f"{self.school_short_name}_{self.degree_name.split()[0]}"
 
+
+class Image(models.Model):
+    image_type = models.CharField(max_length=100)
+    image_name = models.CharField(max_length=50, null=True, blank=True)
+    image_desc = models.CharField(max_length=500, null=True, blank=True)
+    image = models.ImageField(upload_to="images/")
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.image_type
