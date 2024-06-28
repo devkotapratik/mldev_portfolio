@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Education, Location, Date
+
+admin.site.register([Education, Location, Date])

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if education %}
+    {% for school in education %}
+    <ul>
+        <strong>{{school.school_name}}</strong>
+        <p>{{school.degree_name}}{% if school.gpa %} | GPA: {{school.gpa}} {% endif %}</p>
+        {% if school.final_work %}
+            {% if school.link_to_final_work %}
+                <a href="{{school.link_to_final_work}}">{{school.final_work}}</a>
+            {% else %}
+                <p>{{school.final_work}}</p>
+            {% endif %}
+        {% endif %}
+    </ul>
+    {% endfor %}
+{% else %}
+    <p>No education details are available.</p>
+{% endif %}
+
+{% endblock content %}
